@@ -45,8 +45,8 @@ def load_processed_training_data(
     """
     X_train = load_csv(X_train_file, "X_train")
     X_val = load_csv(X_val_file, "X_val")
-    y_train = load_csv(y_train_file, "y_train")
-    y_val = load_csv(y_val_file, "y_val")
+    y_train = load_csv(y_train_file, "y_train_trunc")
+    y_val = load_csv(y_val_file, "y_val_trunc")
 
     return X_train, X_val, y_train, y_val
 

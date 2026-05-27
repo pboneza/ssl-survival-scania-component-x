@@ -24,7 +24,6 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
-INTERIM_DATA_DIR = DATA_DIR / "interim"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 
 
@@ -42,11 +41,8 @@ LOGS_DIR = RESULTS_DIR / "logs"
 # Processed data subdirectories
 # ---------------------------------------------------------------------
 
-TABULAR_BASELINE_DIR = PROCESSED_DATA_DIR / "tabular_baselines"
-TABULAR_DIR = PROCESSED_DATA_DIR / "tabular"
 SEQUENCE_DIR = PROCESSED_DATA_DIR / "sequences"
 TRUNCATED_DIR = PROCESSED_DATA_DIR / "tabular_truncated"
-
 
 # ---------------------------------------------------------------------
 # Raw input files
@@ -55,33 +51,6 @@ TRUNCATED_DIR = PROCESSED_DATA_DIR / "tabular_truncated"
 OPERATIONAL_FILE = RAW_DATA_DIR / "train_operational_readouts.csv"
 SPECIFICATIONS_FILE = RAW_DATA_DIR / "train_specifications.csv"
 TTE_FILE = RAW_DATA_DIR / "train_tte.csv"
-
-
-# ---------------------------------------------------------------------
-# Processed tabular baseline files
-# ---------------------------------------------------------------------
-
-PREDICTOR_NO_STATIC_FILE = TABULAR_BASELINE_DIR / "X_tabular_no_static.csv"
-PREDICTOR_WITH_STATIC_FILE = TABULAR_BASELINE_DIR / "X_tabular_with_static.csv"
-TARGETS_FILE = TABULAR_BASELINE_DIR / "y_tabular_targets.csv"
-
-
-# ---------------------------------------------------------------------
-# Full-history tabular files
-# ---------------------------------------------------------------------
-
-X_TRAIN_NS_FILE = TABULAR_DIR / "X_train_without_static.csv"
-X_VAL_NS_FILE = TABULAR_DIR / "X_val_without_static.csv"
-X_TEST_NS_FILE = TABULAR_DIR / "X_test_without_static.csv"
-
-X_TRAIN_WS_FILE = TABULAR_DIR / "X_train_with_static.csv"
-X_VAL_WS_FILE = TABULAR_DIR / "X_val_with_static.csv"
-X_TEST_WS_FILE = TABULAR_DIR / "X_test_with_static.csv"
-
-Y_TRAIN_FILE = TABULAR_DIR / "y_train.csv"
-Y_VAL_FILE = TABULAR_DIR / "y_val.csv"
-Y_TEST_FILE = TABULAR_DIR / "y_test.csv"
-
 
 # ---------------------------------------------------------------------
 # Truncated-history tabular files
@@ -111,14 +80,11 @@ def create_project_directories() -> None:
     """
     directories = [
         RAW_DATA_DIR,
-        INTERIM_DATA_DIR,
         PROCESSED_DATA_DIR,
         RESULTS_DIR,
         FIGURES_DIR,
         TABLES_DIR,
         LOGS_DIR,
-        TABULAR_BASELINE_DIR,
-        TABULAR_DIR,
         SEQUENCE_DIR,
         TRUNCATED_DIR,
     ]
