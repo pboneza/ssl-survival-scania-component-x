@@ -729,10 +729,11 @@ def save_sequence_artifacts(
     val_seq: dict,
     test_seq: dict,
     normalizer: dict,
+    encoder: dict,
     output_dir: str | Path,
 ):
     """
-    Save processed sequence datasets and normalizer.
+    Save processed sequence datasets, normalizer and encoder.
 
     Parameters
     ----------
@@ -740,6 +741,7 @@ def save_sequence_artifacts(
     val_seq : dict
     test_seq : dict
     normalizer : dict
+    encoder: dict
     output_dir : str or Path
         Directory where artifacts will be saved.
     """
@@ -747,63 +749,28 @@ def save_sequence_artifacts(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Save sequences
-    with open(output_dir / "train_sequences_ssl.pkl", "wb") as f:
+    with open(output_dir / "train_sequences_full.pkl", "wb") as f:
         pickle.dump(train_seq, f)
 
-    with open(output_dir / "val_sequences_ssl.pkl", "wb") as f:
+    with open(output_dir / "val_sequences_full.pkl", "wb") as f:
         pickle.dump(val_seq, f)
 
-    with open(output_dir / "test_sequences_ssl.pkl", "wb") as f:
+    with open(output_dir / "test_sequences_full.pkl", "wb") as f:
         pickle.dump(test_seq, f)
-
     # Save normalizer
-    with open(output_dir / "time_gap_normalizer.pkl", "wb") as f:
+    with open(output_dir / "full_sequence_normalizer.pkl", "wb") as f:
         pickle.dump(normalizer, f)
+    # Save encoder
+    with open(output_dir / "full_sequence_encoder.pkl", "wb") as f:
+        pickle.dump(encoder, f)
 
-    print(f"SSL sequences and time gap normalizer saved to: {output_dir}")
+    print(f"SSL sequences, normalizer and encoder saved to: {output_dir}")
 
 def save_truncated_sequence_artifacts(
     train_trunc_seq: dict,
     val_trunc_seq: dict,
     test_trunc_seq: dict,
     normalizer_trunc: dict,
-    output_dir: str | Path,
-):
-    """
-    Save processed sequence datasets and normalizer.
-
-    Parameters
-    ----------
-    train_seq : dict
-    val_seq : dict
-    test_seq : dict
-    normalizer : dict
-    output_dir : str or Path
-        Directory where artifacts will be saved.
-    """
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    # Save sequences
-    with open(output_dir / "truncated_train_sequences.pkl", "wb") as f:
-        pickle.dump(train_trunc_seq, f)
-
-    with open(output_dir / "truncated_val_sequences.pkl", "wb") as f:
-        pickle.dump(val_trunc_seq, f)
-
-    with open(output_dir / "truncated_test_sequences.pkl", "wb") as f:
-        pickle.dump(test_trunc_seq, f)
-
-    # Save normalizer
-    with open(output_dir / "truncated_sequence_normalizer.pkl", "wb") as f:
-        pickle.dump(normalizer_trunc, f)
-
-    print(f"Truncated sequences and normalizer saved to: {output_dir}")
-# save truncated sequences with one hot encoded static features
-def save_ohe_truncated_sequence_artifacts(
-    train_trunc_seq: dict,
-    val_trunc_seq: dict,
-    test_trunc_seq: dict,
     encoder_trunc: dict,
     output_dir: str | Path,
 ):
@@ -815,7 +782,8 @@ def save_ohe_truncated_sequence_artifacts(
     train_seq : dict
     val_seq : dict
     test_seq : dict
-    encoder : dict
+    normalizer : dict
+    encoder: dict
     output_dir : str or Path
         Directory where artifacts will be saved.
     """
@@ -823,20 +791,23 @@ def save_ohe_truncated_sequence_artifacts(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Save sequences
-    with open(output_dir / "truncated_train_sequences_enc.pkl", "wb") as f:
+    with open(output_dir / "train_sequences_truncated.pkl", "wb") as f:
         pickle.dump(train_trunc_seq, f)
 
-    with open(output_dir / "truncated_val_sequences_enc.pkl", "wb") as f:
+    with open(output_dir / "val_sequences_truncated.pkl", "wb") as f:
         pickle.dump(val_trunc_seq, f)
 
-    with open(output_dir / "truncated_test_sequences_enc.pkl", "wb") as f:
+    with open(output_dir / "test_sequences_truncated.pkl", "wb") as f:
         pickle.dump(test_trunc_seq, f)
 
+    # Save normalizer
+    with open(output_dir / "truncated_sequence_normalizer.pkl", "wb") as f:
+        pickle.dump(normalizer_trunc, f)
     # Save encoder
     with open(output_dir / "truncated_sequence_encoder.pkl", "wb") as f:
         pickle.dump(encoder_trunc, f)
 
-    print(f"Encoded tTruncated sequences and encoder saved to: {output_dir}")
+    print(f"Truncated sequences, normalizer and encoder saved to: {output_dir}")
 
 
 def load_sequence_artifacts(output_dir: str | Path):

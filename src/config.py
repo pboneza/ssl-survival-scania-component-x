@@ -68,7 +68,19 @@ Y_TRAIN_TRUNC_FILE = TRUNCATED_DIR / "y_train_trunc.csv"
 Y_VAL_TRUNC_FILE = TRUNCATED_DIR / "y_val_trunc.csv"
 Y_TEST_TRUNC_FILE = TRUNCATED_DIR / "y_test_trunc.csv"
 
+# ---------------------------------------------------------------------
+# Full-history sequence files
+# ---------------------------------------------------------------------
+X_TRAIN_FULL_RAW_SEQUENCE_FILE = SEQUENCE_DIR / "train_seq_full.pkl"
+X_VAL_FULL_RAW_SEQUENCE_FILE = SEQUENCE_DIR / "val_seq_full.pkl"
+X_TEST_FULL_RAW_SEQUENCE_FILE = SEQUENCE_DIR / "test_seq_full.pkl"
 
+# ---------------------------------------------------------------------
+# Truncated-history sequence files
+# ---------------------------------------------------------------------
+X_TRAIN_TRUNC_RAW_SEQUENCE_FILE = SEQUENCE_DIR / "train_seq_truncated.pkl"
+X_VAL_TRUNC_RAW_SEQUENCE_FILE = SEQUENCE_DIR / "val_seq_truncated.pkl"
+X_TEST_TRUNC_RAW_SEQUENCE_FILE = SEQUENCE_DIR / "test_seq_truncated.pkl"
 # ---------------------------------------------------------------------
 # Utility function
 # ---------------------------------------------------------------------
