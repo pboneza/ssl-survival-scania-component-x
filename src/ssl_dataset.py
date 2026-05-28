@@ -38,7 +38,7 @@ import numpy as np
 import pandas as pd
 import torch
 from torch.utils.data import Dataset
-from src.sequence_preprocessing import create_two_augmented_views
+from sequence_preprocessing import create_two_augmented_views
 from torch.nn.utils.rnn import pad_sequence
 
 
