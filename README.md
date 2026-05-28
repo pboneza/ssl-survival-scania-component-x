@@ -12,6 +12,14 @@ The main objective of this work is to investigate whether semi-supervised repres
 
 More specifically, the study evaluates whether representations learned from irregularly sampled operational histories can improve time-to-failure prediction compared with established, purely supervised survival models.
 
+## How to Use This Repository
+
+To achieve the intended reproducibility objective of this repository, users should first download the SCANIA Component X dataset from its official source and place the raw files in the `data/raw/` directory without modifying the original file structure or filenames.
+
+The notebooks should then be executed in numerical order. This order is important because the early notebooks generate the processed tabular datasets and sequence files that are required by the later modelling notebooks. In particular, the preprocessing and sequence preparation notebooks create the intermediate files used for baseline modelling, self-supervised or semi-supervised pretraining, and downstream survival fine-tuning.
+
+The repository is therefore intended to be used as a sequential experimental pipeline rather than as a collection of independent notebooks.
+
 ## Dataset
 
 The experiments use the SCANIA Component X dataset, a real-world multivariate time series dataset for predictive maintenance.
@@ -33,3 +41,6 @@ Additional notes on approximate reproducibility are provided in:
 
 ```text
 docs/reproducibility_notes.md
+
+
+
