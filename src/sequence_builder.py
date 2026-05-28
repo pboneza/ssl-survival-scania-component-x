@@ -722,14 +722,14 @@ def preprocess_sequence_splits(
     test_norm = log_transform_histogram_sequence_dict(test_norm)
 
     return train_norm, val_norm, test_norm, normalizer
-
+from sklearn.preprocessing import OneHotEncoder
 
 def save_sequence_artifacts(
     train_seq: dict,
     val_seq: dict,
     test_seq: dict,
     normalizer: dict,
-    encoder: dict,
+    encoder: OneHotEncoder,
     output_dir: str | Path,
 ):
     """
@@ -766,12 +766,13 @@ def save_sequence_artifacts(
 
     print(f"SSL sequences, normalizer and encoder saved to: {output_dir}")
 
+
 def save_truncated_sequence_artifacts(
     train_trunc_seq: dict,
     val_trunc_seq: dict,
     test_trunc_seq: dict,
     normalizer_trunc: dict,
-    encoder_trunc: dict,
+    encoder_trunc: OneHotEncoder,
     output_dir: str | Path,
 ):
     """
