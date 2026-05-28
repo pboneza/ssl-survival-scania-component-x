@@ -26,3 +26,10 @@ The dataset is not included in this repository. Users should download it from th
 
 ```text
 data/raw/
+
+## Reproducibility Notes
+
+Additional notes on approximate reproducibility are provided in:
+
+```text
+docs/reproducibility_notes.md
